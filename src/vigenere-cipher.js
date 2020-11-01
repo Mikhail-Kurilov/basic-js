@@ -2,8 +2,9 @@ const CustomError = require("../extensions/custom-error");
 
 class VigenereCipheringMachine {
   encrypt() {
-    throw new CustomError('Not implemented');
-    // remove line with error and write your code here
+    result = '';
+    for (let i=0; i < 'message'.length; i++ )
+    result += massage[i]('key')
   }    
   decrypt() {
     throw new CustomError('Not implemented');
@@ -12,3 +13,27 @@ class VigenereCipheringMachine {
 }
 
 module.exports = VigenereCipheringMachine;
+
+/*
+let cipher = salt => {
+  let textToChars = text => text.split('').map(c => c.charCodeAt(0))
+  let byteHex = n => ("0" + Number(n).toString(16)).substr(-2)
+  let applySaltToChar = code => textToChars(salt).reduce((a,b) => a ^ b, code)    
+
+  return text => text.split('')
+      .map(textToChars)
+      .map(applySaltToChar)
+      .map(byteHex)
+      .join('')
+}
+
+let decipher = salt => {
+  let textToChars = text => text.split('').map(c => c.charCodeAt(0))
+  let saltChars = textToChars(salt)
+  let applySaltToChar = code => textToChars(salt).reduce((a,b) => a ^ b, code)
+  return encoded => encoded.match(/.{1,2}/g)
+      .map(hex => parseInt(hex, 16))
+      .map(applySaltToChar)
+      .map(charCode => String.fromCharCode(charCode))
+      .join('')
+} */
